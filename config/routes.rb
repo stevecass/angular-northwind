@@ -10,6 +10,7 @@ Northwind::Application.routes.draw do
     resources :products
     resources :shippers
     resources :suppliers
+    get 'find/:what/:from_field/:from_val/:exact' => 'finder#index', as: :find
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
