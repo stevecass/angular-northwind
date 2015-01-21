@@ -1,7 +1,10 @@
 <div ng-app='northwind'>
   <div ng-controller="MainController">
-    <div ng-repeat="item in data.categories">
+    <div class="categories" ng-repeat="item in data.categories" ng-click="setCurrentCat(item)">
       {{item.category_name}}
+    </div>
+    <div class="products" ng-repeat="product in data.products | matchesOn:'category_id':current_cat_id">
+        {{product.product_name}}
     </div>
   </div>
 
