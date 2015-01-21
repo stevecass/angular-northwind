@@ -32,9 +32,9 @@ northwind.controller('MainController', ['$scope', '$filter', 'Category', 'Produc
   }
 
   $scope.findProductsFromSearch = function() {
-    var txt = $scope.search_text;
-    console.log(txt);
-    $scope.products_to_show = $filter('contains')($scope.data.products, 'product_name', txt);
+    var txtToMatch = $scope.search_text;
+    var sourceArray = $scope.data.products 
+    $scope.products_to_show = $filter('contains')(sourceArray, 'product_name', txtToMatch);
   }
 
 
