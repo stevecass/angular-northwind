@@ -12,4 +12,9 @@ class Api::OrdersController < ApplicationController
     render :json => @order
   end
 
+  def for_product
+    @orders = Order.joins(:order_details).where(order_details: {product_id: params[:pid]})
+    render :json => @orders
+  end
+
 end

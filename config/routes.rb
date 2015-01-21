@@ -6,10 +6,11 @@ Northwind::Application.routes.draw do
     resources :customers
     resources :employees
     resources :orders
+    get 'orders/for/:pid' => 'orders#for_product'
     resources :order_details
     resources :products
-    resources :shippers
-    resources :suppliers
+    # resources :shippers
+    # resources :suppliers
     get 'find/:what/:from_field/:from_val/:exact' => 'finder#index', as: :find
   end
 
