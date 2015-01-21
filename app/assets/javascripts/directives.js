@@ -4,7 +4,8 @@ northwind.directive('products', function () {
     scope: { 
       products: "=",
       descriptor: "=" ,
-      updateprodlist: '&'
+      updateprodlist: '&',
+      setStockLevelClass: '&'
     },
     templateUrl: "/ajs_templates/product.html"
   };
