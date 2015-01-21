@@ -1,5 +1,5 @@
 
-northwind.controller('MainController', ['$scope', '$filter', 'Category', 'Product', 'finderService', function($scope, $filter, Category, Product, finderService){
+northwind.controller('MainController', ['$scope', '$filter', 'Category', 'Product', 'finderService', 'orderService', function($scope, $filter, Category, Product, finderService, orderService){
   $scope.data = {};
 
   Category.query(function(data){
@@ -25,7 +25,11 @@ northwind.controller('MainController', ['$scope', '$filter', 'Category', 'Produc
   }
 
   $scope.ordersFor = function(product) {
-    $scope.search('order_details', 'product_id', product.id, 'T');
+    console.log(product);
+    orderService.ordersForProduct(product.id).then(function(data){
+      $scope.current_orders = data;
+    });
+    
 
   }
 

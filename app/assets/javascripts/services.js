@@ -19,3 +19,16 @@ northwind.factory('finderService', ['$http', function($http){
   };
   return service;
 }]);
+
+northwind.factory('orderService', ['$http', function($http){
+  var service = {
+    ordersForProduct: function(pid) {
+    var s = '/api/orders/for/' + pid;
+    var promise = $http.get(s).then(function(response){
+      return response.data;
+    });
+    return promise;
+    }
+  };
+  return service;
+}]);
