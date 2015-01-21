@@ -1,7 +1,7 @@
 <div ng-app='northwind'>
   <div ng-controller="MainController">
     <h3>Categories</h3>
-    <div class="categories" ng-repeat="item in data.categories" ng-click="setCurrentCat(item)">
+    <div class="categories clickable" ng-repeat="item in data.categories" ng-click="setCurrentCat(item)">
       {{item.category_name}}
     </div>
 
@@ -15,7 +15,7 @@
           <th class="numeric">Reorder level</th>
         </tr>
         <tr class="product" ng-click="ordersFor(product)" ng-repeat="product in data.products | matchesOn:'category_id':current_cat.id">
-           <td class="product_name" ng-bind="product.product_name"></td>
+           <td class="clickable product_name" ng-bind="product.product_name"></td>
            <td class="qty_per_unit" ng-bind="product.quantity_per_unit"></td>
            <td ng-class="stockLevelClass(product)" class="numeric units_in_stock" ng-bind="product.units_in_stock"></td>
            <td class="numeric reorder_level" ng-bind="product.reorder_level"></td>
