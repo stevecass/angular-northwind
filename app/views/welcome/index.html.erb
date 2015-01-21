@@ -5,6 +5,11 @@
       {{item.category_name}}
     </div>
 
+    <div>
+      or search for: <input id="searcher" name="searcher" ng-model="search_text" 
+      ng-change="findProductsFromSearch()">
+    </div>
+
     <products products="products_to_show" descriptor="product_list_descriptor"></products>
 
     <div ng-show="search_results">

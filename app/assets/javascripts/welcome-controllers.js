@@ -30,8 +30,12 @@ northwind.controller('MainController', ['$scope', '$filter', 'Category', 'Produc
     orderService.ordersForProduct(product.id).then(function(data){
       $scope.current_orders = data;
     });
-    
+  }
 
+  $scope.findProductsFromSearch = function() {
+    var txt = $scope.search_text;
+    console.log(txt);
+    $scope.products_to_show = $filter('contains')($scope.data.products, 'product_name', txt);
   }
 
 
