@@ -1,5 +1,6 @@
 Northwind::Application.routes.draw do
 
+  root "welcome#index"
   namespace :api, :defaults => {:format => :json} do
     resources :categories
     resources :customers
