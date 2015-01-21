@@ -11,7 +11,12 @@ northwind.controller('MainController', ['$scope', '$filter', 'Category', 'Produc
    });
 
    $scope.setCurrentCat = function(item) {
-    $scope.current_cat_id = item.id;
+    $scope.current_cat = item;
+   }
+
+   $scope.stockLevelClass = function(item) {
+      return item.units_in_stock < item.reorder_level ? "stock_level_danger" : "stock_level_ok";
+
    }
 
 }]);
