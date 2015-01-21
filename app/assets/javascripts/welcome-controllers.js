@@ -26,7 +26,6 @@ northwind.controller('MainController', ['$scope', '$filter', 'Category', 'Produc
   }
 
   $scope.ordersFor = function(product) {
-    console.log(product);
     orderService.ordersForProduct(product.id).then(function(data){
       $scope.current_orders = data;
     });

@@ -10,7 +10,9 @@
       ng-change="findProductsFromSearch()">
     </div>
 
-    <products products="products_to_show" descriptor="product_list_descriptor"></products>
+    <products products="products_to_show" 
+    updateprodlist="ordersFor(product)"
+    descriptor="product_list_descriptor"></products>
 
     <div ng-show="search_results">
       <div ng-repeat="item in search_results">

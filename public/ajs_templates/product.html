@@ -7,8 +7,8 @@
     <th class="numeric">In stock</th>
     <th class="numeric">Reorder level</th>
   </tr>
-  <tr class="product" ng-click="ordersFor(product)" ng-repeat="product in products">
-     <td class="clickable product_name" ng-bind="product.product_name"></td>
+  <tr class="product" ng-repeat="product in products">
+     <td class="clickable product_name" ng-click="updateprodlist({product: product})"  ng-bind="product.product_name"></td>
      <td class="qty_per_unit" ng-bind="product.quantity_per_unit"></td>
      <td ng-class="stockLevelClass(product)" class="numeric units_in_stock" ng-bind="product.units_in_stock"></td>
      <td class="numeric reorder_level" ng-bind="product.reorder_level"></td>
