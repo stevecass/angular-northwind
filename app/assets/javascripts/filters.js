@@ -1,10 +1,10 @@
 northwind.filter('matchesOn', function () {
-  return function (items, field, value) {
+  return function (items, fieldName, valueToMatch) {
     var filtered = [];
-    if (items && field && value) {
+    if (items && fieldName && valueToMatch) {
       for (var i = 0; i < items.length; i++) {
         var item = items[i];
-        if (item[field] == value) {
+        if (item[fieldName] == valueToMatch) {
           filtered.push(item);
         }
       }
