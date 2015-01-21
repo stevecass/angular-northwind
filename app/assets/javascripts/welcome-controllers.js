@@ -3,15 +3,16 @@ northwind.controller('MainController', ['$scope', '$filter', 'Category', 'Produc
   $scope.data = {};
 
   Category.query(function(data){
-    $scope.data.categories = data
+    $scope.data.categories = data;
   });
 
   Product.query(function(data){
-    $scope.data.products = data
+    $scope.data.products = data;
   });
 
   $scope.setCurrentCat = function(item) {
-    $scope.current_cat = item;
+    $scope.products_to_show = $filter('matchesOn')($scope.data.products, 'category_id', item.id);
+    $scope.product_list_descriptor = item.category_name
   }
 
   $scope.stockLevelClass = function(item) {
