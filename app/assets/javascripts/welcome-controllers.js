@@ -24,6 +24,11 @@ northwind.controller('MainController', ['$scope', '$filter', 'Category', 'Produc
     });
   }
 
+  $scope.ordersFor = function(product) {
+    $scope.search('order_details', 'product_id', product.id, 'T');
+
+  }
+
 
 }]);
 

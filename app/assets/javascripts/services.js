@@ -10,7 +10,7 @@ northwind.factory('Supplier', function($resource) {   return $resource('/api/sup
 northwind.factory('finderService', ['$http', function($http){
   var service = {
     search: function(what, field, val, exact) {
-    var s = arguments.join("/");
+    var s = '/api/find/' + Array.prototype.join.call(arguments, "/");
     var promise = $http.get(s).then(function(response){
       return response.data;
     });
