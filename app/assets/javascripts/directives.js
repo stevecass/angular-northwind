@@ -8,4 +8,14 @@ northwind.directive('products', function () {
     },
     templateUrl: "/ajs_templates/product.html"
   };
+});
+
+northwind.directive('orders', function () {
+  return {
+    restrict: 'E',
+    scope: {
+      orders: "=",
+    },
+    templateUrl: "/ajs_templates/order_table.html"
+  };
 }); 

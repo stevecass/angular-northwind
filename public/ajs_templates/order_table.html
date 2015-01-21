@@ -1,0 +1,16 @@
+<table class="current_orders" >
+  <tr>
+    <th>Company Name</th>
+    <th>Address</th>
+    <th>Country</th>
+    <th>Order Date</th>
+    <th>Shipped Date</th>
+  </tr>
+  <tr ng-repeat="order in orders">
+    <td ng-bind="order.customer.company_name"></td>
+    <td ng-bind="order.customer.address"></td>
+    <td ng-bind="order.customer.country"></td>
+    <td ng-bind="order.order_date"></td>
+    <td ng-bind="order.shipped_date"></td>
+  </tr>
+</table>
