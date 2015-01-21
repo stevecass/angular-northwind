@@ -16,6 +16,7 @@ northwind.directive('orders', function () {
     restrict: 'E',
     scope: {
       orders: "=",
+      updatecustomer: '&'
     },
     templateUrl: "/ajs_templates/order_table.html"
   };

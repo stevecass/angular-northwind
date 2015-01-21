@@ -7,7 +7,7 @@
     <th>Shipped Date</th>
   </tr>
   <tr ng-repeat="order in orders">
-    <td ng-bind="order.customer.company_name"></td>
+    <td ng-mouseover="updatecustomer({order: order})" ng-bind="order.customer.company_name"></td>
     <td ng-bind="order.customer.address"></td>
     <td ng-bind="order.customer.country"></td>
     <td ng-bind="order.order_date"></td>

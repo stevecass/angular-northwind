@@ -28,6 +28,9 @@ northwind.controller('MainController', ['$scope', '$filter', 'Category', 'Produc
   $scope.ordersFor = function(product) {
     orderService.ordersForProduct(product.id).then(function(data){
       $scope.current_orders = data;
+      if ($scope.current_orders.length > 0) {
+        $scope.updateCustomer($scope.current_orders[0]);
+      }
     });
   }
 
@@ -35,6 +38,11 @@ northwind.controller('MainController', ['$scope', '$filter', 'Category', 'Produc
     var txtToMatch = $scope.search_text;
     var sourceArray = $scope.data.products 
     $scope.products_to_show = $filter('contains')(sourceArray, 'product_name', txtToMatch);
+  }
+
+  $scope.updateCustomer = function(order) {
+    $scope.cust_to_display = order.customer
+    $scope.order_detail_to_display = order.order_details
   }
 
 

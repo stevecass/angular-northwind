@@ -29,5 +29,29 @@ table#product_details {
   color:red;
   }
 
-
+}
+div#product_list {
+  max-height:250px;
+  overflow: scroll;
+  
+}
+div.order_history {
+  float:left;
+  width:60%;
+  height:250px;
+  overflow: scroll;
+  padding: 5px 0;
+  background-color: #DDD;
+}
+div.customer_details {
+  float:right;
+  width:40%;
+  height:250px;
+  overflow: scroll;
+  padding: 5px 0;
+  background-color: #DDD;
+}
+span.categories {
+  display:inline-block;
+  margin-right:5px;
 }

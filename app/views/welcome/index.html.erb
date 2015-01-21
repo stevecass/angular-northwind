@@ -1,19 +1,23 @@
 <div ng-app='northwind'>
   <div ng-controller="MainController">
     <h3>Categories</h3>
-    <div class="categories clickable" ng-repeat="item in data.categories" ng-click="setCurrentCat(item)">
+    <div class="category_list">
+    <span class="categories clickable" ng-repeat="item in data.categories" ng-click="setCurrentCat(item)">
       {{item.category_name}}
-    </div>
+    </span>
 
-    <div>
       or search for: <input id="searcher" name="searcher" ng-model="search_text" 
       ng-change="findProductsFromSearch()">
     </div>
 
-    <products products="products_to_show" 
-    updateprodlist="ordersFor(product)"
-    set-stock-level-class="stockLevelClass(thisisjustakey)"
-    descriptor="product_list_descriptor"></products>
+    
+    <h3 ng-show="products_to_show.length > 0">Products in {{product_list_descriptor}}</h3>
+    <div id="product_list" ng-show="products_to_show.length > 0">
+      <products products="products_to_show" 
+      updateprodlist="ordersFor(product)"
+      set-stock-level-class="stockLevelClass(thisisjustakey)"
+      descriptor="product_list_descriptor"></products>
+    </div>
 
     <div ng-show="search_results">
       <div ng-repeat="item in search_results">
@@ -21,9 +25,24 @@
       </div>
     </div>
 
-    <div ng-show="current_orders">
-      <h3>Order history</h3>
-      <orders orders="current_orders"></orders>
+    
+   <div class="order_container">
+      <h3 ng-show="current_orders">Order history</h3>
+      <div class="order_history" ng-show="current_orders">
+        <orders orders="current_orders" updatecustomer="updateCustomer(order)" ></orders>
+      </div>
+      <div class="customer_details" ng-show="cust_to_display">
+        <h4>Customer details</h4>
+        {{cust_to_display.company_name}} <br><br>
+        {{cust_to_display.contact_name}}<br>
+        {{cust_to_display.city}}
+        {{cust_to_display.region}}<br>
+        {{cust_to_display.country}}<br>
+        {{cust_to_display.phone}}<br>
+        
+
+      </div>
+
     </div>
 
   </div>
