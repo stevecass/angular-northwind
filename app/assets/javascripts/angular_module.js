@@ -1,0 +1,1 @@
+var northwind = angular.module('northwind', ['ngResource']);
