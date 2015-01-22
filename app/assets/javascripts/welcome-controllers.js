@@ -38,6 +38,7 @@ northwind.controller('MainController', ['$scope', '$filter', 'Category', 'Produc
     var txtToMatch = $scope.search_text;
     var sourceArray = $scope.data.products 
     $scope.products_to_show = $filter('contains')(sourceArray, 'product_name', txtToMatch);
+    $scope.product_list_descriptor = $scope.search_text;
   }
 
   $scope.updateCustomer = function(order) {
