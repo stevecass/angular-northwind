@@ -6,7 +6,7 @@ one:
   order_date: 2013-12-29
   required_date: 2013-12-29
   shipped_date: 2013-12-29
-  shipped_via: 1
+  ship_via: 1
   freight: 1.5
   ship_name: MyString
   ship_address: MyString
@@ -21,7 +21,7 @@ two:
   order_date: 2013-12-29
   required_date: 2013-12-29
   shipped_date: 2013-12-29
-  shipped_via: 1
+  ship_via: 1
   freight: 1.5
   ship_name: MyString
   ship_address: MyString
