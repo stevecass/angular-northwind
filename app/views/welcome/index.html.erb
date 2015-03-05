@@ -1,19 +1,17 @@
-<div ng-app='northwind'>
+<div class="app" ng-app='northwind'>
   <div ng-controller="MainController">
     <h3>Categories</h3>
     <div class="category_list">
     <span class="categories clickable" ng-repeat="item in data.categories" ng-click="setCurrentCat(item)">
       {{item.category_name}}
     </span>
+    </div><div class="category_list">
 
       or search for: <input id="searcher" name="searcher" ng-model="search_text" 
       ng-change="findProductsFromSearch()">
-    </div>
-
-    <div>
       Add a category: 
       <input ng-model="new_category_name">
-      <button ng-click="saveNewCategory()">Save</button>
+      <button class="button tiny" ng-click="saveNewCategory()">Save</button>
     </div>
 
     
@@ -33,11 +31,10 @@
 
     
    <div class="order_container" ng-show="current_orders">
-      <h3 ng-show="current_orders">Order history</h3>
+      <h3 id="order_history" ng-show="current_orders">Order history</h3>
       <div class="order_history" ng-show="current_orders">
         <orders orders="current_orders" updatecustomer="updateCustomer(order)" ></orders>
-      </div>
-      <div class="customer_details" ng-show="cust_to_display">
+      </div><div class="customer_details" ng-show="cust_to_display">
        <div class="cust_detail">
           <h4>Customer details</h4>
           {{cust_to_display.contact_name}}<br>

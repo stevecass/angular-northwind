@@ -1,10 +1,16 @@
 // Place all the styles related to the Welcome controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-$shade_color: #FEE;
+$shade_color: #EEE;
 
 body {
 	font-family: arial, helvetica, sans-serif;
+}
+h3 {
+  font-size: 1.2em;
+}
+div.app {
+  padding: 10px;
 }
 .clickable {
   text-decoration:underline;
@@ -33,22 +39,24 @@ table#product_details {
 
 }
 div#product_list {
-  max-height:300px;
+  max-height:150px;
   overflow: scroll;
   
 }
 div.order_container {
-  background-color: $shade_color;
   overflow:hidden;
 }
-
+h3#order_history {
+    margin-top: 5px;
+    background-color: $shade_color;
+}
 div.order_history {
   float:left;
   width:60%;
   height:250px;
   overflow: scroll;
   padding: 5px 0;
-  background-color: $shade_color;
+  margin: 0;
 }
 div.customer_details {
   float:right;
@@ -56,9 +64,10 @@ div.customer_details {
   height:250px;
   overflow: scroll;
   padding: 0;
-  background-color: $shade_color;
   div.cust_detail {
-    padding: 0 10px;
+    padding: 0 20px;
+    margin:0;
+    background-color: white;
   }
 }
 span.categories {
