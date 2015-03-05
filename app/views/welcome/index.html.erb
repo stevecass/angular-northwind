@@ -10,6 +10,12 @@
       ng-change="findProductsFromSearch()">
     </div>
 
+    <div>
+      Add a category: 
+      <input ng-model="new_category_name">
+      <button ng-click="saveNewCategory()">Save</button>
+    </div>
+
     
     <h3 ng-show="products_to_show.length > 0">Products matching {{product_list_descriptor}}</h3>
     <div id="product_list" ng-show="products_to_show.length > 0">
@@ -26,7 +32,7 @@
     </div>
 
     
-   <div class="order_container">
+   <div class="order_container" ng-show="current_orders">
       <h3 ng-show="current_orders">Order history</h3>
       <div class="order_history" ng-show="current_orders">
         <orders orders="current_orders" updatecustomer="updateCustomer(order)" ></orders>

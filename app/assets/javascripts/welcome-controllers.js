@@ -2,9 +2,12 @@
 northwind.controller('MainController', ['$scope', '$filter', 'Category', 'Product', 'finderService', 'orderService', function($scope, $filter, Category, Product, finderService, orderService){
   $scope.data = {};
 
-  Category.query(function(data){
-    $scope.data.categories = data;
-  });
+  $scope.loadCategories = function() {
+    Category.query(function(data){
+      $scope.data.categories = data;
+    });
+  }
+  $scope.loadCategories();
 
   Product.query(function(data){
     $scope.data.products = data;
@@ -12,7 +15,8 @@ northwind.controller('MainController', ['$scope', '$filter', 'Category', 'Produc
 
   $scope.setCurrentCat = function(item) {
     $scope.products_to_show = $filter('matchesOn')($scope.data.products, 'category_id', item.id);
-    $scope.product_list_descriptor = item.category_name
+    $scope.product_list_descriptor = item.category_name;
+    $scope.current_orders = null;
   }
 
   $scope.stockLevelClass = function(item) {
@@ -36,7 +40,7 @@ northwind.controller('MainController', ['$scope', '$filter', 'Category', 'Produc
 
   $scope.findProductsFromSearch = function() {
     var txtToMatch = $scope.search_text;
-    var sourceArray = $scope.data.products 
+    var sourceArray = $scope.data.products ;
     $scope.products_to_show = $filter('contains')(sourceArray, 'product_name', txtToMatch);
     $scope.product_list_descriptor = $scope.search_text;
   }
@@ -46,6 +50,11 @@ northwind.controller('MainController', ['$scope', '$filter', 'Category', 'Produc
     $scope.order_detail_to_display = order.order_details
   }
 
+  $scope.saveNewCategory = function() {
+    var newCat = new Category();
+    newCat.category_name = $scope.new_category_name;
+    newCat.$save().then(function(){$scope.loadCategories()});
+  }
 
 }]);
 
