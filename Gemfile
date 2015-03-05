@@ -33,7 +33,8 @@ group :doc do
 end
 
 gem 'seed_dump'
-
+gem 'compass-rails'
+gem 'zurb-foundation'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
 
