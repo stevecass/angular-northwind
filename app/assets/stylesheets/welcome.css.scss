@@ -9,6 +9,9 @@ body {
 h3 {
   font-size: 1.2em;
 }
+header {
+  clear: both;
+}
 div.app {
   padding: 10px;
 }
@@ -16,6 +19,17 @@ div.app {
   text-decoration:underline;
   cursor: pointer;
 }
+div#category_container {
+  max-width:600px;
+  float:left;
+}
+div#explanations {
+  position: absolute;
+  top: 5px;
+  right:0;
+  font-style: italic;
+}
+
 
 table#product_details {
   td, th {
@@ -47,7 +61,7 @@ div.order_container {
   overflow:hidden;
 }
 h3#order_history {
-    margin-top: 5px;
+    margin-top: 10px;
     background-color: $shade_color;
 }
 div.order_history {

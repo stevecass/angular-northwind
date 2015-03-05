@@ -1,18 +1,31 @@
+<div id="explanations">
+Notes
+<ul>
+  <li>Click a category to see the related products.
+  </li><li>Click a product to see orders for it
+  </li><li>Hover over a customer name in the orders to see futher customer detail
+  </li><li>Filter the product listy by typing in the search box
+  </li>
+</ul>
+</div>
+
 <div class="app" ng-app='northwind'>
   <div ng-controller="MainController">
+  <header>
     <h3>Categories</h3>
     <div class="category_list">
     <span class="categories clickable" ng-repeat="item in data.categories" ng-click="setCurrentCat(item)">
       {{item.category_name}}
     </span>
     </div><div class="category_list">
-
       or search for: <input id="searcher" name="searcher" ng-model="search_text" 
       ng-change="findProductsFromSearch()">
       Add a category: 
       <input ng-model="new_category_name">
       <button class="button tiny" ng-click="saveNewCategory()">Save</button>
     </div>
+  </header>
+
 
     
     <h3 ng-show="products_to_show.length > 0">Products matching {{product_list_descriptor}}</h3>
