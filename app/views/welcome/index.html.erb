@@ -32,7 +32,7 @@
   <div class="clear"></div>
   </div>
 
-    <h3 ng-show="products_to_show.length > 0 || search_text.length > 0">Products matching {{product_list_descriptor}}</h3>
+    <h3 ng-show="products_to_show.length > 0 || search_text.length > 0">Products matching {{product_list_descriptor}} ({{products_to_show.length}})</h3>
     <div id="product_list" ng-show="products_to_show.length > 0">
       <products products="products_to_show" 
       updateprodlist="ordersFor(product)"
