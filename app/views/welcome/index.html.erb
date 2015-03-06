@@ -1,18 +1,10 @@
-<div id="explanations">
-Notes
-<ul>
-  <li>Click a category to see the related products.
-  </li><li>Click a product to see orders for it
-  </li><li>Hover over a customer name in the orders to see futher customer detail
-  </li><li>Filter the product listy by typing in the search box
-  </li>
-</ul>
-</div>
 
 <div class="app" ng-app='northwind'>
   <div ng-controller="MainController">
-  <header>
-    <h3>Categories</h3>
+  
+  <h3>Categories</h3>
+  <div class="container">
+  <div id="section_left">
     <div class="category_list">
     <span class="categories clickable" ng-repeat="item in data.categories" ng-click="setCurrentCat(item)">
       {{item.category_name}}
@@ -20,14 +12,26 @@ Notes
     </div><div class="category_list">
       or search for: <input id="searcher" name="searcher" ng-model="search_text" 
       ng-change="findProductsFromSearch()">
+      </div><div class="category_list">
       Add a category: 
       <input ng-model="new_category_name">
       <button class="button tiny" ng-click="saveNewCategory()">Save</button>
     </div>
-  </header>
 
+  </div>
+  <div id="section_right">
+    <strong>Notes</strong>
+    <ul>
+      <li>Click a category to see the related products.
+      </li><li>Click a product to see its orders.
+      </li><li>Hover over a customer name in the orders to see more customer details.
+      </li><li>Filter the product listy by typing in the search box
+      </li>
+    </ul>
+  </div>
+  <div class="clear"></div>
+  </div>
 
-    
     <h3 ng-show="products_to_show.length > 0">Products matching {{product_list_descriptor}}</h3>
     <div id="product_list" ng-show="products_to_show.length > 0">
       <products products="products_to_show" 
@@ -44,7 +48,7 @@ Notes
 
     
    <div class="order_container" ng-show="current_orders">
-      <h3 id="order_history" ng-show="current_orders">Order history</h3>
+      <h3 id="order_history" ng-show="current_orders">Order history for {{current_product.product_name}}</h3>
       <div class="order_history" ng-show="current_orders">
         <orders orders="current_orders" updatecustomer="updateCustomer(order)" ></orders>
       </div><div class="customer_details" ng-show="cust_to_display">

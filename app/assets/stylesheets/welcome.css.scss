@@ -2,16 +2,17 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 $shade_color: #EEE;
+$left_side_w: 600px;
 
 body {
 	font-family: arial, helvetica, sans-serif;
 }
 h3 {
   font-size: 1.2em;
+  margin-top: 10px;
+  background-color: $shade_color;
 }
-header {
-  clear: both;
-}
+
 div.app {
   padding: 10px;
 }
@@ -19,17 +20,29 @@ div.app {
   text-decoration:underline;
   cursor: pointer;
 }
-div#category_container {
-  max-width:600px;
+
+#section_left {
   float:left;
-}
-div#explanations {
-  position: absolute;
-  top: 5px;
-  right:0;
-  font-style: italic;
+  width: $left_side_w;
+  line-height: 2em;
 }
 
+#section_right {
+float:  right;
+  padding: 4px;
+  ul {
+  margin:0;
+  list-style: none;
+  }
+}
+div.clear {
+  clear: both;
+}
+
+div.category_list {
+  
+}
+  
 
 table#product_details {
   td, th {
@@ -54,19 +67,17 @@ table#product_details {
 }
 div#product_list {
   max-height:150px;
+  width:$left_side_w;
   overflow: scroll;
   
 }
 div.order_container {
   overflow:hidden;
 }
-h3#order_history {
-    margin-top: 10px;
-    background-color: $shade_color;
-}
+
 div.order_history {
   float:left;
-  width:60%;
+  width:70%;
   height:250px;
   overflow: scroll;
   padding: 5px 0;
@@ -74,7 +85,7 @@ div.order_history {
 }
 div.customer_details {
   float:right;
-  width:40%;
+  width:30%;
   height:250px;
   overflow: scroll;
   padding: 0;

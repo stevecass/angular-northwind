@@ -32,6 +32,7 @@ northwind.controller('MainController', ['$scope', '$filter', 'Category', 'Produc
   $scope.ordersFor = function(product) {
     orderService.ordersForProduct(product.id).then(function(data){
       $scope.current_orders = data;
+      $scope.current_product = product;
       if ($scope.current_orders.length > 0) {
         $scope.updateCustomer($scope.current_orders[0]);
       }
@@ -43,6 +44,8 @@ northwind.controller('MainController', ['$scope', '$filter', 'Category', 'Produc
     var sourceArray = $scope.data.products ;
     $scope.products_to_show = $filter('contains')(sourceArray, 'product_name', txtToMatch);
     $scope.product_list_descriptor = $scope.search_text;
+    $scope.current_orders = null;
+
   }
 
   $scope.updateCustomer = function(order) {
