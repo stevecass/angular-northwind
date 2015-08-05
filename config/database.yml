@@ -14,4 +14,4 @@ production:
   adapter: postgresql
   encoding: unicode
   pool: 5
-  database: ENV["SOME_KEY_OR_OTHER"]
+  database: northwind_prod
