@@ -2,13 +2,13 @@ Northwind::Application.routes.draw do
 
   root "welcome#index"
   namespace :api, :defaults => {:format => :json} do
-    resources :categories
-    resources :customers
-    resources :employees
-    resources :orders
+    resources :categories, except: [:new, :edit]
+    resources :customers, except: [:new, :edit]
+    resources :employees, except: [:new, :edit]
+    resources :orders, except: [:new, :edit]
     get 'orders/for/:pid' => 'orders#for_product'
-    resources :order_details
-    resources :products
+    resources :order_details, except: [:new, :edit]
+    resources :products, except: [:new, :edit]
     # resources :shippers
     # resources :suppliers
     get 'find/:what/:from_field/:from_val/:exact' => 'finder#index', as: :find
