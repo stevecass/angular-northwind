@@ -1,6 +1,6 @@
 northwind.controller('MainController', 
-  ['$scope', '$filter', 'Category', 'Product', 'finderService', 'orderService', 
-  function($scope, $filter, Category, Product, finderService, orderService){
+  ['$scope', '$filter', 'Category', 'Product', 'FinderService', 'OrderService',
+  function($scope, $filter, Category, Product, FinderService, OrderService){
   $scope.data = {};
 
   $scope.loadCategories = function() {
@@ -26,13 +26,13 @@ northwind.controller('MainController',
   };
 
   $scope.search = function(what, field, val, exact) {
-    finderService.search(what, field, val, exact).then(function(data){
+    FinderService.search(what, field, val, exact).then(function(data){
       $scope.search_results = data;
     });
   };
 
   $scope.ordersFor = function(product) {
-    orderService.ordersForProduct(product.id).then(function(data){
+    OrderService.ordersForProduct(product.id).then(function(data){
       $scope.current_orders = data;
       $scope.current_product = product;
       if ($scope.current_orders.length > 0) {
